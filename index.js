@@ -77,9 +77,9 @@ const parseVector = (vector) => {
                 aux_alt_B_C = aux_alt_A[1].split("c)")
                 accRow.QUESTION_AL = aux[0]
                 accRow.VARIABLES = {
-                    "a": aux_alt_A[0].trim(),
-                    "b": aux_alt_B_C[0].trim(),
-                    "c": aux_alt_B_C[1].trim()
+                    "a": aux_alt_A[0],
+                    "b": aux_alt_B_C[0],
+                    "c": aux_alt_B_C[1]
                 }
             }
 
