@@ -69,16 +69,17 @@ const parseVector = (vector) => {
             }
 
             if (elRow.E && elRow.E !== '') {
-                // console.log(elRow.A)
-                // console.log(elRow.E)
-                aux = elRow.E.trim().toLowerCase().replace(":", ": ").replace(")", " ").replace(" a-","a)").replace(" b-","b)").replace(" c-","c)").replace(" a ","a)").replace(" b ", "b)").replace(" c ", "c)").split("a)")
+                console.log(elRow.A)
+                console.log(elRow.E)
+                console.log(elRow.E.trim().toLowerCase().replace(" )",")").replace(" a-","a)").replace(" b-","b)").replace(" c-","c)").replace(": a",": a)").replace(":a",": a)").replace(" b ", " b)").replace(" c ", " c)"))
+                aux = elRow.E.trim().toLowerCase().replace(" )",")").replace(" a-","a)").replace(" b-","b)").replace(" c-","c)").replace(": a",": a)").replace(":a",": a)").replace(" b ", " b)").replace(" c ", " c)").split("a)")
                 // console.log(aux)
                 aux_alt_A = aux[1].split("b)")
                 aux_alt_B_C = aux_alt_A[1].split("c)")
                 accRow.QUESTION_AL = aux[0]
                 accRow.VARIABLES = {
-                    "a": aux_alt_A[0],
-                    "b": aux_alt_B_C[0],
+                    "a": aux_alt_A[0].replace(")","").trim(),
+                    "b": aux_alt_B_C[0].trim(),
                     "c": aux_alt_B_C[1]
                 }
             }
