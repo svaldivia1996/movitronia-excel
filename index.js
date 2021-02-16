@@ -69,9 +69,9 @@ const parseVector = (vector) => {
             }
 
             if (elRow.E && elRow.E !== '') {
-                console.log(elRow.A)
-                console.log(elRow.E)
-                console.log(elRow.E.trim().toLowerCase().replace(" )",")").replace(" a-","a)").replace(" b-","b)").replace(" c-","c)").replace(": a",": a)").replace(":a",": a)").replace(" b ", " b)").replace(" c ", " c)"))
+                // console.log(elRow.A)
+                // console.log(elRow.E)
+                // console.log(elRow.E.trim().toLowerCase().replace(" )",")").replace(" a-","a)").replace(" b-","b)").replace(" c-","c)").replace(": a",": a)").replace(":a",": a)").replace(" b ", " b)").replace(" c ", " c)"))
                 aux = elRow.E.trim().toLowerCase().replace(" )",")").replace(" a-","a)").replace(" b-","b)").replace(" c-","c)").replace(": a",": a)").replace(":a",": a)").replace(" b ", " b)").replace(" c ", " c)").split("a)")
                 // console.log(aux)
                 aux_alt_A = aux[1].split("b)")
