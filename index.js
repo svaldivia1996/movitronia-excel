@@ -1,4 +1,5 @@
 const excelToJson = require('convert-excel-to-json');
+const fs = require('fs');
 
 const main = async () => {
     let count = 281
@@ -42,7 +43,9 @@ const main = async () => {
 
     let res = parseVector(arr)
 
-    console.log(res)
+    var myJSON = JSON.stringify(res);
+    console.log(myJSON)
+    fs.writeFileSync('TIPS-MOVITRONIA-5,6,7,8.json', myJSON);
 }
 
 const parseVector = (vector) => {
@@ -51,9 +54,9 @@ const parseVector = (vector) => {
         // console.log(el)
         // console.log(i)
         let thisRow = el.reduce((accRow, elRow, elI)=> {
-            // console.log(elRow.E)
+            // console.log(accRow)
             if (elRow.A) {
-                accRow.NUMBER = elRow.A
+                accRow.NUMBER = `${elRow.A}`
             }
 
             if (elRow.B) {
@@ -65,7 +68,13 @@ const parseVector = (vector) => {
             }
 
             if (elRow.D) {
-                accRow.SOLUTION_VF = elRow.D
+                if(elRow.D.trim().toUpperCase() === "V" ){
+                    accRow.VF_SOLUTION = "verdadero"
+                }
+                if(elRow.D.trim().toUpperCase() === "F" ){
+                    accRow.VF_SOLUTION = "falso"
+                }
+
             }
 
             if (elRow.E && elRow.E !== '') {
@@ -85,7 +94,7 @@ const parseVector = (vector) => {
             }
 
             if (elRow.F) {
-                accRow.VARIABLES_SOLUTION = elRow.F
+                accRow.VARIABLES_SOLUTION = elRow.F.trim().toLowerCase()
             }
 
             return accRow
